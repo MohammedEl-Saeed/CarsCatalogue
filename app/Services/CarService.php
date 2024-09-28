@@ -10,6 +10,7 @@ use Storage;
 
 class CarService implements CarServiceInterface
 {
+    
     public function index()
     {
        return Car::with('user')->paginate(10);
