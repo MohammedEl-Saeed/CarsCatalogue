@@ -11,7 +11,7 @@ class CarControllerTest extends TestCase
 {
     use RefreshDatabase; // Refresh the database for each test
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_can_create_a_car()
     {
         $user = User::factory()->create(); // Create a user
@@ -35,7 +35,7 @@ class CarControllerTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_can_fetch_all_cars()
     {
         $user = User::factory()->create(); // Create a user
@@ -48,7 +48,7 @@ class CarControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_can_fetch_a_single_car()
     {
         $user = User::factory()->create(); // Create a user
@@ -62,7 +62,7 @@ class CarControllerTest extends TestCase
                  ->assertJsonFragment(['id' => $car->id]);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_can_update_a_car()
     {
         $user = User::factory()->create(); // Create a user
@@ -89,7 +89,7 @@ class CarControllerTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_can_delete_a_car()
     {
         $user = User::factory()->create(); // Create a user
@@ -103,7 +103,7 @@ class CarControllerTest extends TestCase
         $this->assertDatabaseMissing('cars', ['id' => $car->id]);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_validates_required_fields_when_creating_a_car()
     {
         $user = User::factory()->create(); // Create a user
